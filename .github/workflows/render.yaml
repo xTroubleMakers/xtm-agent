@@ -1,0 +1,18 @@
+services:
+  - type: worker
+    name: xtm-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: deepseek/deepseek-v4.1-flash:free
+      - key: OPENROUTER_FALLBACK_MODELS
+        value: deepseek/deepseek-v4.1-flash
+      - key: MAX_HISTORY
+        value: "20"
